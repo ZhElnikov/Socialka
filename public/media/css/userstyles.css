@@ -1,0 +1,9 @@
+#main{
+	flex-basis: 100%;
+	height: auto;
+}
+.listofusers p{
+	margin-left: 10px;
+	margin-top: 5px;
+	color: CornflowerBlue;
+}
