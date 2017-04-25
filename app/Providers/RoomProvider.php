@@ -24,38 +24,28 @@ class RoomProvider extends ServiceProvider
      */
     public function register()
     {
-		$this->startcookie();
-		$url = $_SERVER['REQUEST_URI'];
-		$arr_url = explode('/',$url);
-        if ( $arr_url[1]=='room' ){
-			//$this->cookie($arr_url[2]);
-		}
-		
-    }
-	private function cookie($new_room){
-		echo $new_room;
-		
-		$flag=true;
-		$arr = explode(',',$_COOKIE['rooms']);
-		foreach($arr as $one){
-			if ($one == $new_room){
-				$flag=false;
+		if( (isset($_SERVER['REQUEST_URI']))){
+			$url = $_SERVER['REQUEST_URI'];
+			$arr_url = explode('/',$url);
+			if ( $arr_url[1]=='room' ){
+				$id = $arr_url[2];
+				//Cookie::forget('rooms');
+				if ( empty($_COOKIE["rooms"]) ){
+					setcookie('rooms','1,',time()+3600*24,'/');
+				}
+				else{
+					$flag=true;
+					$arr=explode(',',$_COOKIE["rooms"]);
+					foreach($arr as $one){
+						if ($one == $id) $flag=false;
+					}
+					if ($flag){
+						$new_cookie = $_COOKIE["rooms"].$id.',';
+						setcookie('rooms',$new_cookie,time()+3600*24,'/');
+					} 
+				}
 			}
 		}
-		echo $new_room;
-		if ($flag){
-			$arr[]=$new_room;
-			$str = implode($arr);
-			echo $str;
-		}
-	}
-	private function startcookie(){
-	//	if ( !isset(Cookie::get('rooms')) ){
-			//setcockie('rooms','1,',time()+3600*24,'/'); //one day cookie
-			Cookie::make('rooms','1,',3600);
-			//echo Cookie::get('rooms');
-			//echo $cookie;
-			cookie('rooms');
-		//}
-	}
+    }
+	
 }
