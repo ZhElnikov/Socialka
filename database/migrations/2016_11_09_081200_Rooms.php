@@ -17,6 +17,8 @@ class Rooms extends Migration
 			$t->increments('id');
 			$t->integer('user_id');
 			$t->string('name');
+      $t->enum('roomtype',array('public','private'))->default('public');
+      $t->integer('reciever_id');
 			$t->enum('showhile',array('show','hide'))->default('show');
 			$t->timestamps();
 		});
@@ -29,7 +31,6 @@ class Rooms extends Migration
      */
     public function down()
     {
-        //
-		Schema::drop('rooms');
+		  Schema::drop('rooms');
     }
 }

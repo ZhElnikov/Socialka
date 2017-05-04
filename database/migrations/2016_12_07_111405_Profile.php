@@ -13,16 +13,16 @@ class Profile extends Migration
     public function up()
     {
         Schema::create('profiles', function (Blueprint $table) {
-            $table->increments('id');
-			$table->integer('user_id');
-			$table->string('useravatar');
-			$table->string('username');
-			$table->string('usersurname');
-			$table->string('usercontact');
-			$table->text('userabout');
-			$table->text('usersex');
-			$table->integer('userchoose');
-            $table->timestamps();
+          $table->increments('id');
+			    $table->integer('user_id');
+			    $table->string('useravatar');
+			    $table->string('username');
+			    $table->string('usersurname');
+			    $table->string('usercontact');
+			    $table->text('userabout');
+			    $table->text('usersex');
+			    $table->integer('userchoose');
+          $table->timestamps();
         });
     }
 

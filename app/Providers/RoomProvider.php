@@ -16,7 +16,7 @@ class RoomProvider extends ServiceProvider
     {
         //
     }
-	
+
     /**
      * Register the application services.
      *
@@ -42,10 +42,12 @@ class RoomProvider extends ServiceProvider
 					if ($flag){
 						$new_cookie = $_COOKIE["rooms"].$id.',';
 						setcookie('rooms',$new_cookie,time()+3600*24,'/');
-					} 
+					}
 				}
 			}
-		}
+		  }
+  //  setcookie('rooms','1,',time()+3600*24,'/');
+  //   dd($_COOKIE["rooms"]);
     }
-	
+
 }

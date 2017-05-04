@@ -20,14 +20,16 @@ Route::get('/rooms', 'RoomController@getIndex');
 
 Route::get('/profile', 'ProfileController@getIndex');
 Route::get('/users', 'UserController@getUsers');
-Route::get('/user/{id}', 'UserController@getIndex')->where('id','[0-9]');
-Route::get('/room/{id}', 'RoomController@getNum')->where('id','[0-9]');
-Route::get('/room/{thisid}/exit/{id}', 'RoomController@closeRoom')->where('id','[0-9]')->where('thisid','[0-9]');
+Route::get('/user/{id}', 'UserController@getIndex')->where('id','[0-9]+');
+Route::get('/room/{id}', 'RoomController@getNum')->where('id','[0-9]+');
+Route::get('/room/{thisid}/exit/{id}', 'RoomController@closeRoom')->where('id','[0-9]+')->where('thisid','[0-9]+');
+Route::get('/addprivateroom/{id}','RoomController@postPrivateRoom')->where('id','[0-9]+');
+Route::get('/privateroom/{id}','RoomController@getPrivateRoom')->where('id','[0-9]+');
 //Route::get('/logout', 'UserController@logout');
 
 Route::post('/message/{id}','MessageController@postIndex')->where('id','[0-9]+');
 Route::post('/addroom','RoomController@postIndex');
-Route::post('/addprivateroom/{id}','RoomController@postPrivateRoom')->where('id','[0-9]+');
+
 Route::post('/profile','ProfileController@postIndex');
 
 

@@ -2,46 +2,56 @@
 @section('title')
 	{{$title}}
 @endsection
+@section('styles')
+	@parent
+	<link href="{{asset('/media/css/profilestyle.css')}}" type="text/css" rel="stylesheet">
+@endsection
 @section('content')
-<div class="main" id="main">
-<div id="userprofile">
-		<div id="user-avatar">
-			<p>Аватар</p>
-		</div>
-		<div id="user-alltext">
+<div class="main" id="main-profile">
+	<div>
+	<div id="profile">
+	<div id="user-avatar">
+		<img src="" class="img-rounded">
+	</div>
+
+	<div id="userprofile">
+		<div id="name">
 			<div id="user-name">
-				<p>Имя</p>
 				@if (isset($user->profiles))
-					<p>{{$user->profiles->username}}</p>
+					<b><span class="input-xlarge uneditable-input">{{$user->profiles->username}}</span></b>
 				@endif
 			</div>
 			<div id="user-surname">
-				<p>Фамилия</p>
 				@if (isset($user->profiles))
-				<p>{{$user->profiles->usersurname}}</p>
-			@endif
+					<b><span class="input-xlarge uneditable-input">{{$user->profiles->usersurname}}</span></b>
+				@endif
+			</div>
+		</div>
+
+		<div id="user-alltext">
+			<div id="user-sex">
+				Пол:
+				@if (isset($user->profiles))
+					<i><span class="">{{$user->profiles->usersex}}</span></i>
+				@endif
 			</div>
 			<div id="user-contacts">
-				<p>Контакты для связи</p>
+				Контакт для связи:
 				@if (isset($user->profiles))
-				<p>{{$user->profiles->usercontacts}}</p>
-			@endif
-			</div>
-			<div id="user-info">
-				<p >О себе</p>
-				@if (isset($user->profiles))
-				<p>{{$user->profiles->userabout}}</p>
-			@endif
+					<span class="input-xlarge uneditable-input">{{$user->profiles->usercontact}}</span>
+				@endif
 			</div>
 		</div>
-		<div id="form-privateroom">
-			<form action="{{asset('addprivateroom/'.$user->id)}}" method="post" id="form-addprivateroom">
-				{{csrf_field()}}
-				<lable id="createroom">Создать приватную комнату: </lable>
-				<input autofocus type="text" class="enter-room" name='name' id="addprivateroom" onkeypress="Press(this.value, event)">
-				<input class="button" type="submit" value="Создать" id="enter">
-			</form>
-		</div>
+	</div>
 </div>
+	<span class="about"> О себе:</span>
+	<div id="user-info">
+		@if (isset($user->profiles))
+			<span class="input-xlarge uneditable-input">{{$user->profiles->userabout}}</span>
+		@endif
+	</div>
+</div>
+	<div class="buttons"><a href="{{ asset('addprivateroom/'.$user->id) }}" class="btn btn-default">Создать приватную комнату</a>
+	<a href="{{ asset('addprivateroom/'.$user->id) }}" class="btn btn-default">Добавить в друзья</a></div>
 </div>
 @endsection

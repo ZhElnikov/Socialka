@@ -39,7 +39,7 @@
 		</div>
 	</div>
 	<form method='POST' action="{{asset('message/'.$id)}}">
-	{{csrf_field()}}
+	{{ csrf_field() }}
 	<div class="enter" "id="enter-chat">
 		<input autofocus type="text" class="enter-text" name='body' id="area" onkeypress="Press(this.value, event)">
 		<input class="enter-button" type="submit" value="Ввод" id="enter">
