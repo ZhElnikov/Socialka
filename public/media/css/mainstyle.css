@@ -1,7 +1,9 @@
 html, body, .body{
 	height: 100%;
 }
-
+.navbar-header{
+	background-color: #3a5fcd !important;
+}
 .body{
 	display: flex;
 	flex-direction: column;

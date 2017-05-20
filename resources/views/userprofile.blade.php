@@ -19,7 +19,10 @@
 			<div id="user-name">
 				@if (isset($user->profiles))
 					<b><span class="input-xlarge uneditable-input">{{$user->profiles->username}}</span></b>
+				@else
+					<b><span class="input-xlarge uneditable-input">Аноним</span></b>
 				@endif
+
 			</div>
 			<div id="user-surname">
 				@if (isset($user->profiles))
@@ -51,7 +54,19 @@
 		@endif
 	</div>
 </div>
-	<div class="buttons"><a href="{{ asset('addprivateroom/'.$user->id) }}" class="btn btn-default">Создать приватную комнату</a>
-	<a href="{{ asset('addprivateroom/'.$user->id) }}" class="btn btn-default">Добавить в друзья</a></div>
+	<div class="buttons">
+	    <a href="{{ asset('addprivateroom/'.$user->id) }}" class="btn btn-default">Создать приватную комнату</a>
+			{{ $flag = false }}
+			@foreach ($me->friends()->get() as $one)
+				@if($one->friend_user_id == $user->id)
+					<? $flag = true ?>
+					@endif
+			@endforeach
+			@if ($flag)
+				<a href="" class="btn btn-success">Друзья</a>
+			@else
+				<a href="{{ asset('addfriend/'.$user->id) }}" class="btn btn-default">Добавить в друзья</a>
+			@endif
+</div>
 </div>
 @endsection

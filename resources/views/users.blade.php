@@ -13,6 +13,10 @@
 		@foreach($users as $one)
 			<p><a href="{{asset('user/'.$one->id)}}">{{$one->name}}</a></p>
 		@endforeach
+		<p>Друзья:</p>
+		@foreach($friends as $one)
+			<p><a href="{{asset('user/'.$one->friend_user_id)}}">{{$one->whoisfriend->name}}</a></p>
+		@endforeach
 	</div>
 </div>
 @endsection

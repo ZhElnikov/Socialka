@@ -57,4 +57,10 @@ class User extends Model implements AuthenticatableContract,
 	public function profiles(){
 		return $this->hasOne('App\Profile','user_id');
 	}
+  public function friends(){
+		return $this->hasMany('App\Friend','user_id');
+	}
+  public function whoisfriends(){
+		return $this->hasMany('App\Friend','user_id');
+	}
 }

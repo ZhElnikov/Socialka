@@ -15,8 +15,8 @@ class ProfileController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-    }  
-	public function getIndex(){  
+    }
+	public function getIndex(){
 		$title='Социалка';
 		$user=Profile::where('user_id',Auth::user()->id)->first();
 		if($user == null){
@@ -24,7 +24,7 @@ class ProfileController extends Controller
 		}
 		return view('profile')->with('title',$title)->with('user',$user);
 	}
-	public function postIndex(Requests\UserRequest $r){  
+	public function postIndex(Requests\UserRequest $r){
 		Profile::updateOrCreate([
 			'user_id'=>Auth::user()->id
 		],$r->all());

@@ -25,13 +25,11 @@ Route::get('/room/{id}', 'RoomController@getNum')->where('id','[0-9]+');
 Route::get('/room/{thisid}/exit/{id}', 'RoomController@closeRoom')->where('id','[0-9]+')->where('thisid','[0-9]+');
 Route::get('/addprivateroom/{id}','RoomController@postPrivateRoom')->where('id','[0-9]+');
 Route::get('/privateroom/{id}','RoomController@getPrivateRoom')->where('id','[0-9]+');
+Route::get('/addfriend/{id}','UserController@addfriend')->where('id','[0-9]+');
 //Route::get('/logout', 'UserController@logout');
 
 Route::post('/message/{id}','MessageController@postIndex')->where('id','[0-9]+');
 Route::post('/addroom','RoomController@postIndex');
-
 Route::post('/profile','ProfileController@postIndex');
-
-
 
 //Route::get('/home', 'HomeController@index');
