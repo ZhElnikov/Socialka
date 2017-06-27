@@ -10,19 +10,13 @@
 <div class="main" id="main-profile">
 	<div>
 	<div id="profile">
-	<div id="user-avatar">
-		<img src="" class="img-rounded">
-	</div>
-
-	<div id="userprofile">
-		<div id="name">
+	    <div id="name">
 			<div id="user-name">
 				@if (isset($user->profiles))
 					<b><span class="input-xlarge uneditable-input">{{$user->profiles->username}}</span></b>
 				@else
 					<b><span class="input-xlarge uneditable-input">Аноним</span></b>
 				@endif
-
 			</div>
 			<div id="user-surname">
 				@if (isset($user->profiles))
@@ -30,7 +24,14 @@
 				@endif
 			</div>
 		</div>
-
+		<div id="user-profile">
+		<div id="user-avatar">
+		    @if (isset($user->profiles->useravatar))
+			    <img src="{{asset('/media/photos/'.$user->profiles->useravatar)}}" >
+		    @else
+			    <img src="{{asset('/media/photos/1.jpg')}}" >
+		    @endif
+		</div>
 		<div id="user-alltext">
 			<div id="user-sex">
 				Пол:
@@ -45,12 +46,12 @@
 				@endif
 			</div>
 		</div>
-	</div>
+		</div>
 </div>
 	<span class="about"> О себе:</span>
 	<div id="user-info">
 		@if (isset($user->profiles))
-			<span class="input-xlarge uneditable-input">{{$user->profiles->userabout}}</span>
+			<textarea type="text" class="form-control" name="userabout" value="{{$user->userabout}}">{{$user->profiles->userabout}}</textarea>
 		@endif
 	</div>
 </div>

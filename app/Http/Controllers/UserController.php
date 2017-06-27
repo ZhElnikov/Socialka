@@ -17,17 +17,22 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 	public function getIndex($id){
-		$title='Социалка - Профиль';
+		$title='Профиль';
 		$user=User::where('id',$id)->first();
-    $me=Auth::user();
+		$me=Auth::user();
 		return view('userprofile')->with('title',$title)->with('id',$id)->with('user',$user)->with('me',$me);
 	}
 	public function getUsers(){
-		$title='Социалка - Пользователи';
+		$title='Пользователи';
+		$flag='users';
 		$users=User::all();
-    $friends_id=Friend::where( 'user_id', Auth::user()->id ) -> orderBy('id','DESC')->get();
-
-		return view('users')->with('title',$title)->with('users',$users)->with('friends',$friends_id);
+		return view('users')->with('title',$title)->with('users',$users)->with('flag',$flag);
+	}
+	public function getFriends(){
+		$title='Друзья';
+		$flag='friends';
+		$friends_id=Friend::where('user_id',Auth::user()->id)->orderBy('id','DESC')->get();
+		return view('users')->with('title',$title)->with('friends',$friends_id)->with('flag',$flag);
 	}
   public function addfriend($friend_id){
     $r=array(

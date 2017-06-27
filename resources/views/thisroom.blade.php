@@ -34,7 +34,16 @@
 		<div class="list" "id="list-chat">
 			<p>Пользователи:</p>
 			@foreach($users as $one)
+			<div class="user">
+				<div id="user-avatar">
+						@if (isset($one->profiles->useravatar))
+							<img src="{{asset('/media/photos/'.$one->profiles->useravatar)}}" >
+						@else
+							<img src="{{asset('/media/photos/1.jpg')}}" >
+						@endif
+				</div>
 				<p><a href="{{asset('user/'.$one->id)}}">{{$one->name}}</a></p>
+			</div>
 			@endforeach
 		</div>
 	</div>

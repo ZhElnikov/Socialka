@@ -13,7 +13,7 @@
 	{{csrf_field()}}
 		<div class="form-group">
 			<label>Аватар</label>
-			<input type="file" id="exampleInputFile" name="useravatar">
+			<input type="file" id="exampleInputFile" name="useravatar1"> 
 			<p class="help-block">Выберете файл JPEG или PNG.</p>
 		</div>
 		<div class="form-group">

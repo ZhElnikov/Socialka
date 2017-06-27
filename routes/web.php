@@ -20,6 +20,7 @@ Route::get('/rooms', 'RoomController@getIndex');
 
 Route::get('/profile', 'ProfileController@getIndex');
 Route::get('/users', 'UserController@getUsers');
+Route::get('/friends', 'UserController@getFriends');
 Route::get('/user/{id}', 'UserController@getIndex')->where('id','[0-9]+');
 Route::get('/room/{id}', 'RoomController@getNum')->where('id','[0-9]+');
 Route::get('/room/{thisid}/exit/{id}', 'RoomController@closeRoom')->where('id','[0-9]+')->where('thisid','[0-9]+');

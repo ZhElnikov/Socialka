@@ -15,25 +15,22 @@
   <div class="body" id="site-window">
 	<div class="main" id="top">
 	<div class="left-menu" id="left-menu">
-			<a href="{{url('/')}}" class="choise" "id="profile-menu">
-				<p>Главная</p>
-			</a>
+			<a class="navbar-brand" href="{{url('/')}}" style="height: 52px; margin: -9px 0 0 0;">
+	  <img src="/public/media/img/logo.png" alt="Speakers">
+        </a>
 			<a href="{{url('profile')}}" class="choise" "id="profile-menu">
 				<p>Профиль</p>
 			</a>
 			<a href="{{url('rooms')}}" class="choise" "id="room-menu">
 				<p>Комнаты</p>
 			</a>
-			<a href="{{url('users')}}" class="choise" "id="search-menu">
+			<a href="{{url('friends')}}" class="choise" "id="search-menu">
 				<p>Пользователи</p>
 			</a>
 		</div>
 		<div class="right-menu" id="right-menu">
-			<a href="" class="choise" "id="room-menu">
-				<p>Настройки</p>
-			</a>
 			<a href="{{ route('login') }}" class="choise" "id="exit-menu">
-				<p>Выход</p>
+				<p>Выйти</p>
 			</a>
 		</div>
 	</div>
@@ -44,7 +41,7 @@
 		
 	</div>
 	<div class="main" id="foot">
-		<p>Elnikov</p>
+		<p>©Created by Elnikov E., Lutak V., Kulikovskaya A., Korzun A.</p>
 	</div>
   </div>
   @section('scripts')

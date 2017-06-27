@@ -1,9 +1,26 @@
 #main{
-	flex-basis: 100%;
-	height: auto;
+	min-width: 366px;
+	max-width: 366px;
 }
-.listofusers p{
+ul li a{
+	color: #27408B;
+	font-weight: bold;
+}
+#user-avatar img{
+	width: 20px;
+	height: 30px;
+}
+.user{
+	padding-left: 10px;
+	display: flex;
+}
+.list{
+	display: flex;
+	flex-direction: column;
+	padding-top: 20px;
+}
+.listofusers p a{
 	margin-left: 10px;
 	margin-top: 5px;
-	color: CornflowerBlue;
+	color: RoyalBlue;
 }

@@ -20,7 +20,6 @@ html, body, .body{
 	height: 45px;
 	min-height: 45px;
 	border-bottom: 2px solid #27408B;
-
 }
 #left-menu{
 	display: flex;
@@ -65,18 +64,15 @@ html, body, .body{
 	border: 1px solid RoyalBlue;
 	border-radius: 4px;
 	margin-left: 10px;
-}
-#main{
-	display: flex;
 	justify-content: space-between;
-
+	
 }
 .center{
 	display: flex;
-	flex-basis: 85%;
+	flex-basis: 100%;
 	min-height: 200px;
 	flex-direction: row;
-	margin: 0 60px 0 60px;
+	margin: 20px 60px 20px 60px;
 	justify-content: center !important;
 }
 
@@ -87,9 +83,9 @@ html, body, .body{
 #foot{
 	background-color: #3a5fcd;
 	color: white;
-	margin-top: 10px;
 	padding-right:10px;
-	text-align: right;
+	padding-top: 7px;
+	text-align: center;
 }
 #createroom{
 	padding: 10px;
